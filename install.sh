@@ -14,3 +14,8 @@ ln -s "$DOTFILES/X11" "$HOME/.config"
 # i3
 rm -rf "$HOME/.config/i3"
 ln -s "$DOTFILES/i3" "$HOME/.config"
+
+# zsh
+mkdir -p "$HOME/.config/zsh"
+ln -sf "$DOTFILES/zsh/.zshenv" "$HOME"
+ln -sf "$DOTFILES/zsh/.zshrc" "$HOME/.config/zsh"
