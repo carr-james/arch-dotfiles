@@ -1,0 +1,14 @@
+# common
+alias ll='ls -lah'
+alias d='dirs -v'
+for index ({1..9}) alias "$index"="cd +${index}"; unset index
+
+# git aliases
+alias ga='git add'
+alias gc='git commit'
+alias gp='git push'
+alias gl='git pull'
+alias gst='git status'
+alias glol='git log --oneline'
+alias gcan!='git commit --amend --no-edit'
+alias gcmsg='git commit -m'
