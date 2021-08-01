@@ -38,7 +38,7 @@ set_from_resource $white2       color15     #ffffff
 
 set $mod Mod4
 
-font pango:DejaVu Sans Mono 8
+font pango:Inconsolata 12
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -282,3 +282,6 @@ mode "$mode_display" {
 }
 
 bindsym $mod+x mode "$mode_display"
+
+# dunst notifications
+exec --no-startup-id dunst
