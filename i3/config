@@ -38,7 +38,7 @@ set_from_resource $white2       color15     #ffffff
 
 set $mod Mod4
 
-font pango:Inconsolata 12
+font pango:Inconsolata Nerd Font Mono 12
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -199,6 +199,7 @@ focus_follows_mouse no
 bar {
     status_command i3status --config ~/.config/i3/i3status.conf;
     tray_output none
+    font pango:mononoki Nerd Font Mono 15
     colors {
         background $black2
         statusline $white2
