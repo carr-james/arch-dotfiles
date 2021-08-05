@@ -49,8 +49,14 @@ URxvt.saveLines: 5000
 URxvt.iso14755:      false
 URxvt.letterSpace: -1
 
-URxvt.perl-ext-common: tabbedex
+! extensions
+URxvt.perl-ext-common: default,tabbedex
 
+! copy and paste
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+! tabs
 URxvt.keysym.Control-Shift-N: perl:tabbedex:new_tab
 URxvt.keysym.Control-Shift-K: perl:tabbedex:next_tab
 URxvt.keysym.Control-Shift-J: perl:tabbedex:prev_tab
