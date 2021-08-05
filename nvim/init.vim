@@ -26,6 +26,7 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     " utils
     Plug 'moll/vim-bbye' " close buffers without exitting vim
     Plug 'simnalamburt/vim-mundo' " undo tree
+    Plug 'christoomey/vim-tmux-navigator'
 
     " file specific
     Plug 'chrisbra/csv.vim'  
@@ -55,3 +56,6 @@ nnoremap tj :tabprev<CR>
 nnoremap tl :tablast<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
+
+" split with ctrl-w h instead of ctrl-w s
+nnoremap <c-w>h <c-w>s

@@ -16,6 +16,11 @@ source $ZDOTDIR/external/zsh-autosuggestions/zsh-autosuggestions.zsh
 # prompt
 autoload -Uz prompt_purification_setup; prompt_purification_setup
 
+# clear terminal with ctrl+g instead of ctrl+l
+bindkey -r '^l'
+bindkey -r '^g'
+bindkey -s '^g' 'clear\n'
+
 # directory stack
 setopt AUTO_PUSHD
 setopt PUSHD_IGNORE_DUPS
