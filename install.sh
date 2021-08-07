@@ -1,7 +1,7 @@
 #!/bin/bash
 
 source ./zsh/.zshenv
-
+ 
 # neovim
 mkdir -p "$XDG_CONFIG_HOME/nvim"
 mkdir -p "$XDG_CONFIG_HOME/nvim/undo"

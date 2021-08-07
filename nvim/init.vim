@@ -26,7 +26,32 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     " utils
     Plug 'moll/vim-bbye' " close buffers without exitting vim
     Plug 'simnalamburt/vim-mundo' " undo tree
+
+    " tmux
+    Plug 'wellle/tmux-complete.vim'
     Plug 'christoomey/vim-tmux-navigator'
+    " TODO: vim-tmux
+    " TODO: vim-tmux-foxus-events
+
+    " lsp
+    Plug 'neovim/nvim-lspconfig'
+
+    " future plugin ideas
+    " TODO: snippets: vim-snippets or ultisnips? 
+    " TODO: file brower: nerd-tree or rancher?
+    " TODO: linter: neomake or ale?
+    " TODO: surround plugin: vim-sandwich or vim-surround?
+    " TODO: navigation: vim-snipe or vim-easymotion?
+    " TODO: text-objects: targets.vim?
+    " TODO: yank history: nvim-miniyank?
+    " TODO: search and replace: ferret or quickfix_reflector?
+    " TODO: status bar: lightline or vim-airline?
+    " TODO: color scheme: gruvbox or dracula?
+    " TODO: man pages: superman?
+    " TODO: git: vim-fugitive, vim-gitgutter, git-messager or gv?
+    " TODO: comments: vim-commentarty?
+    " TODO: highlight yank: vim-highlighedyank
+    " TODO: splitjoin.vim - join or split args/arrays on multiple lines
 
     " file specific
     Plug 'chrisbra/csv.vim'  
@@ -59,3 +84,10 @@ nnoremap tc :tabclose<CR>
 
 " split with ctrl-w h instead of ctrl-w s
 nnoremap <c-w>h <c-w>s
+
+" bash lsp
+lua require'lspconfig'.bashls.setup{}
+
+" python lsp
+lua require'lspconfig'.pyright.setup{}
+
