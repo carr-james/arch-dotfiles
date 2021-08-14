@@ -38,7 +38,11 @@ set_from_resource $white2       color15     #ffffff
 
 set $mod Mod4
 
-font pango:Inconsolata Nerd Font Mono 12
+font pango:Inconsolata 10 
+
+# gaps
+smart_gaps on # only add gaps when multiple panes on one workspace
+gaps inner 10
 
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
@@ -119,12 +123,12 @@ bindsym $mod+a focus parent
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1: terms"
-set $ws2 "2: web"
-set $ws3 "3: db"
-set $ws4 "4: files"
-set $ws5 "5: mail"
-set $ws6 "6: docs"
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
 set $ws7 "7"
 set $ws8 "8"
 set $ws9 "9"
@@ -196,23 +200,26 @@ bindsym $mod+r mode "resize"
 
 focus_follows_mouse no
 
-bar {
-    status_command i3status --config ~/.config/i3/i3status.conf;
-    tray_output none
-    font pango:mononoki Nerd Font Mono 15
-    colors {
-        background $black2
-        statusline $white2
-        separator  $white2
+# launch polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-        #                   border      background  text
-        focused_workspace   $background $background $red1
-        active_workspace    $black2     $black1     $white2
-        inactive_workspace  $black1     $black2     $foreground
-        urgent_workspace    $red1       $red1       $white2
-        binding_mode        $background $red2       $white2
-    }
-}
+#bar {
+#    status_command i3status --config ~/.config/i3/i3status.conf;
+#    tray_output none
+#    font pango:mononoki Nerd Font Mono 15
+#    colors {
+#        background $black2
+#        statusline $white2
+#        separator  $white2
+#
+#        #                   border      background  text
+#        focused_workspace   $background $background $red1
+#        active_workspace    $black2     $black1     $white2
+#        inactive_workspace  $black1     $black2     $foreground
+#        urgent_workspace    $red1       $red1       $white2
+#        binding_mode        $background $red2       $white2
+#    }
+#}
 
 # lockscreen
 set $i3lockwall sh ~/.config/i3/scripts/lock.sh
@@ -259,7 +266,9 @@ client.unfocused        #333333 #222222     #888888      #292d2e    #222222
 client.urgent           $red1   $red1       $white2      #red1      #red1 
 client.placeholder      #000000 #0c0c0c     $white2      #000000    #0c0c0c
 
+# remove title bar
 for_window [class="URxvt*"] border pixel 1
+for_window [class="^.*"] border pixel 1
 
 # terminal scratchpad
 for_window [instance="urxvt_scratchpad"] move to scratchpad, border none

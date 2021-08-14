@@ -6,8 +6,11 @@ windows:
     layout: tiled
     panes:
       - nvim
-  - window_name: terms
+  - window_name: term 
     layout: tiled
     panes: 
-      -
+      - ls -lah
+  - window_name: bash 
+    layout: tiled
+    panes: 
       - bash

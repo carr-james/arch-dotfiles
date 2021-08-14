@@ -63,5 +63,13 @@ fi
 # custom scripts
 source $ZDOTDIR/scripts.zsh
 
+# set title
+DISABLE_AUTO_TITLE="true"
+case $TERM in
+  rxvt*)
+    precmd () {print -Pn "\e]0;%~\a"}
+    ;;
+esac
+
 # syntax highlighting - should be near bottom of file
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
