@@ -17,6 +17,9 @@ nnoremap <space> <nop>
 let mapleader = "\<space>"
 
 call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
+    " themes
+    Plug 'dracula/vim'
+
     " windows
     Plug 'simeji/winresizer'
 
@@ -56,6 +59,9 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     " file specific
     Plug 'chrisbra/csv.vim'  
 call plug#end()
+
+" theme
+colorscheme dracula
 
 " win resizer
 let g:winresizer_start_key = "<leader>w"
