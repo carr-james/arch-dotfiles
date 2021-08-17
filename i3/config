@@ -101,6 +101,9 @@ bindsym $mod+Ctrl+h split v
 # split in vertical orientation
 bindsym $mod+Ctrl+v split h 
 
+# move workspace to next monitor
+bindsym $mod+m move workspace to output right
+
 # enter fullscreen mode for the focused container
 bindsym $mod+f fullscreen toggle
 
