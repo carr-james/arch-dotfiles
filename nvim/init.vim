@@ -27,8 +27,8 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'junegunn/fzf.vim'
 
     " utils
-    Plug 'moll/vim-bbye' " close buffers without exitting vim
-    Plug 'simnalamburt/vim-mundo' " undo tree
+    Plug 'moll/vim-bbye'            " close buffers without exiting vim
+    Plug 'simnalamburt/vim-mundo'   " undo tree
 
     " tmux
     Plug 'wellle/tmux-complete.vim'
@@ -39,8 +39,15 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     " lsp
     Plug 'neovim/nvim-lspconfig'
 
+    " snippets
+    Plug 'SirVer/ultisnips'
+    Plug 'honza/vim-snippets'
+
+    " distraction free mode
+    Plug 'junegunn/goyo.vim'
+    Plug 'junegunn/limelight.vim'
+
     " future plugin ideas
-    " TODO: snippets: vim-snippets or ultisnips? 
     " TODO: file brower: nerd-tree or rancher?
     " TODO: linter: neomake or ale?
     " TODO: surround plugin: vim-sandwich or vim-surround?
@@ -56,8 +63,20 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     " TODO: highlight yank: vim-highlighedyank
     " TODO: splitjoin.vim - join or split args/arrays on multiple lines
 
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
     " file specific
+    """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+    " csv
     Plug 'chrisbra/csv.vim'  
+
+    " json highlighting
+    Plug 'elzr/vim-json'
+
+    " markdown
+    Plug 'godlygeek/tabular' 
+    Plug 'plasticboy/vim-markdown'
+
 call plug#end()
 
 " theme
@@ -91,9 +110,27 @@ nnoremap tc :tabclose<CR>
 " split with ctrl-w h instead of ctrl-w s
 nnoremap <c-w>h <c-w>s
 
+" snippets
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
+" markdown
+let g:vim_markdown_folding_disabled = 1 " disables header folding
+let g:vim_markdown_conceal = 0          " disables conceal feature
+let g:tex_conceal = ""                  " disables tex conceal feature
+let g:vim_markdown_math = 1
+
+let g:vim_markdown_frontmatter = 1      " enable yaml frontmatter
+let g:vim_markdown_toml_frontmatter = 1 " enable toml frontmatter
+let g:vim_markdown_json_frontmatter = 1 " enable json frontmatter
+
+" distraction free mode
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 " bash lsp
 lua require'lspconfig'.bashls.setup{}
 
 " python lsp
 lua require'lspconfig'.pyright.setup{}
-
