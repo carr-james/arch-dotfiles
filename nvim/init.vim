@@ -70,12 +70,14 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     " csv
     Plug 'chrisbra/csv.vim'  
 
-    " json highlighting
+    " json
     Plug 'elzr/vim-json'
 
     " markdown
     Plug 'godlygeek/tabular' 
     Plug 'plasticboy/vim-markdown'
+    Plug 'vim-pandoc/vim-pandoc-syntax' " improved conceal over vim-markdown
+    Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
 call plug#end()
 
@@ -124,6 +126,13 @@ let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1      " enable yaml frontmatter
 let g:vim_markdown_toml_frontmatter = 1 " enable toml frontmatter
 let g:vim_markdown_json_frontmatter = 1 " enable json frontmatter
+
+augroup pandoc_syntax
+    au! BufNewFile,BufFilePre,BufRead *.md set filetype=markdown.pandoc
+augroup END
+
+let g:mkdp_auto_close = 0               " dont autoclose markdown previw
+nnoremap <C-m> :MarkdownPreview<CR>
 
 " distraction free mode
 autocmd! User GoyoEnter Limelight
