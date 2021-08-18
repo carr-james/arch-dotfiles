@@ -1,0 +1,12 @@
+session_name: notes
+start_directory: $HOME/docs/notes
+
+windows:
+  - window_name: nvim
+    layout: tiled
+    panes: 
+    - nvim +FZF
+  - window_name: term
+    layout: tiled
+    panes:
+      - ls -lah

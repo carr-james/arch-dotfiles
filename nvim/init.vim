@@ -11,6 +11,7 @@ set expandtab
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
+set foldlevel=20
 
 " leader key
 nnoremap <space> <nop>
@@ -47,6 +48,9 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'junegunn/goyo.vim'
     Plug 'junegunn/limelight.vim'
 
+    " indentation markers
+    Plug 'Yggdroot/indentLine'
+
     " future plugin ideas
     " TODO: file brower: nerd-tree or rancher?
     " TODO: linter: neomake or ale?
@@ -79,6 +83,9 @@ call plug#begin("$XDG_CONFIG_HOME/nvim/plugged")
     Plug 'vim-pandoc/vim-pandoc-syntax' " improved conceal over vim-markdown
     Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }}
 
+    " yaml
+    Plug 'pedrohdz/vim-yaml-folds'
+
 call plug#end()
 
 " theme
@@ -109,6 +116,9 @@ nnoremap tl :tablast<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
 
+" indentation marker
+let g:indentLine_char = ''
+
 " split with ctrl-w h instead of ctrl-w s
 nnoremap <c-w>h <c-w>s
 
@@ -133,6 +143,9 @@ augroup END
 
 let g:mkdp_auto_close = 0               " dont autoclose markdown previw
 nnoremap <C-m> :MarkdownPreview<CR>
+
+" yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 " distraction free mode
 autocmd! User GoyoEnter Limelight
